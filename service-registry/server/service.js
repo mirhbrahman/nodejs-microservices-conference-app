@@ -1,10 +1,11 @@
 const express = require('express');
 
 const service = express();
-// const ServiceRegistry = require('./ServiceRegistry');
+const ServiceRegistry = require('./lib/ServiceRegistry');
 
 module.exports = (config) => {
   const log = config.log();
+  const serviceRegistry = new ServiceRegistry(log);
   // Add a request logging middleware in development mode
   if (service.get('env') === 'development') {
     service.use((req, res, next) => {
