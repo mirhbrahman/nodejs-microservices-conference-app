@@ -1,0 +1,4 @@
+/conference-app/node_modules
+/conference-app/.env
+/service-registry/node_modules
+/service-registry/.env
