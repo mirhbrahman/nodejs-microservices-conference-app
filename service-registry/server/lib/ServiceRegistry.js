@@ -1,14 +1,14 @@
-class ServiceRegistry{
-	constructor(log){
+class ServiceRegistry {
+	constructor(log) {
 		this.log = log;
 		this.services = {};
 		this.timeout = 30;
 	}
 
-	register(name, version, ip, port){
+	register(name, version, ip, port) {
 		const key = name + version + ip + port;
 
-		if(!this.services[key]){
+		if (!this.services[key]) {
 			this.services[key] = {};
 			this.services[key].timestamp = Math.floor(new Date() / 1000);
 			this.services[key].ip = ip;
@@ -21,6 +21,13 @@ class ServiceRegistry{
 
 		this.services[key].timestamp = Math.floor(new Date() / 1000);
 		this.log.debug(`Updated service ${name}, version ${version} at ${ip}:${port}`);
+		return key;
+	}
+
+
+	unregister(name, version, ip, port) {
+		const key = name + version + ip + port;
+		delete this.services[key];
 		return key;
 	}
 }
