@@ -2,3 +2,5 @@
 /conference-app/.env
 /service-registry/node_modules
 /service-registry/.env
+/speakers-service/node_modules
+/speakers-service/.env
